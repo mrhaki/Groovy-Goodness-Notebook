@@ -1,8 +1,4 @@
-
-/**
- * Created by IntelliJ IDEA.
- * User: mrhaki
- * Date: Nov 29, 2010
- * Time: 10:50:41 PM
- * To change this template use File | Settings | File Templates.
- */
+filter = { it.path ==~ /.*\.jpg$/ }
+new File('c:/temp').listFiles(filter as FileFilter).each { file ->
+    println file.path
+}

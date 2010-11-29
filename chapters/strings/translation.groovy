@@ -1,8 +1,8 @@
+// Source set and replacement set are equal size.
+assert 'I 10v3 9r00vy' == 'I love Groovy'.tr('loeG', '1039')
 
-/**
- * Created by IntelliJ IDEA.
- * User: mrhaki
- * Date: Nov 29, 2010
- * Time: 10:52:09 PM
- * To change this template use File | Settings | File Templates.
- */
+// Regular expression style range
+assert 'mrHAKI' == 'mrhaki'.tr('a-k', 'A-K')
+
+// Replacement set is smaller than source set.
+assert 'Gr8888' == 'Groovy'.tr('ovy', '8')

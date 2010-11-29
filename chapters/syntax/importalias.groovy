@@ -1,6 +1,6 @@
-import static HttpURLConnection.HTTP_OK  // Normal Java static import.
-import static HttpURLConnection.HTTP_OK as okay
-import static HttpURLConnection.setFollowRedirects as redirect
+import static java.net.HttpURLConnection.HTTP_OK  // Normal Java static import.
+import static java.net.HttpURLConnection.HTTP_OK as okay
+import static java.net.HttpURLConnection.setFollowRedirects as redirect
 import java.net.HttpURLConnection as http // Non static import.
 
 redirect false  // HttpURLConnection.setFollowRedirects(false)
