@@ -1,8 +1,7 @@
 def simple() {
     "Hello world"
 }
-assert 'Hello world' == simple()
-
+assert simple() == 'Hello world'
 
 def doIt(b) {
     if (b) {
@@ -13,7 +12,6 @@ def doIt(b) {
 }
 assert 'You are true' == doIt(true)
 assert 'You are false' == doIt(false)
-
 
 def tryIt(file) {
     try {
@@ -26,6 +24,6 @@ def tryIt(file) {
     }
 }
 assert 'Received exception: invalidfilename (The system cannot find the file specified)'  == tryIt('invalidfilename')
-// Create new file with the name test.
-def newFile = new FileWriter('test').withWriter { it.write('file contents') }
+// Create new file with the name test, so we can read it.
+new FileWriter('test').withWriter { it.write('file contents') }
 assert 'file contents' == tryIt('test')

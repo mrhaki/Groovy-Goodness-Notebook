@@ -20,7 +20,7 @@ def a = new Address(street: 'Main St.', number: 1, city: 'Duck City')
 def p = new Person(name: 'mrhaki', address: a, phoneNumber: '555-123499102')
 
 p.move(street: 'High Av.', city: 'New Yark', '00920120', number: 42)
-// Groovy transform the method invocation to:
+// Groovy transforms the method invocation to:
 // p.move([street: 'High Av.', number: 42, city: 'New Yark'], '555-00920120')
 
 assert 'High Av.' == p.address.street
