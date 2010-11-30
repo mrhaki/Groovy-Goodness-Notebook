@@ -15,3 +15,17 @@ def password = args[1]  // Second argument passed to script is password.
 def sql = Sql.newInstance('jdbc:mysql://localhost/test', username, password, 'com.mysql.jdbc.Driver')
 
 logger.info "Got myself a SQL connection: $sql"
+
+
+import org.apache.commons.lang.SystemUtils
+
+@Grab(group='commons-lang', module='commons-lang', version='2.4')
+def printInfo() {
+    if (SystemUtils.isJavaVersionAtLeast(5)) {
+        println 'We are ready to use annotations in our Groovy code.'
+    } else {
+        println 'We cannot use annotations in our Groovy code.'
+    }
+}
+
+printInfo()

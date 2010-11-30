@@ -15,6 +15,8 @@ copy-paste."""
 // Slashy:
 def s3 = /Well almost everyting goes in a "slashy" 'string' without escaping. Good for readable regular expressions!/
 
+
+
 // Simple Groovy expressions can be used:
 def user = new Expando(name: 'mrhaki', email: 'mail@email.com')
 def gs1 = "Hi, your name is ${user?.name}. If I shout I will call you ${user?.name?.toUpperCase()}!"
