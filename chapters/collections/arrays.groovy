@@ -1,40 +1,40 @@
-def strArray = new String[3]
-assert strArray instanceof String[]
-strArray[0] = 'mrhaki'
-strArray.putAt(1, 'Groovy')  // New syntax.
-strArray[2] = 'Java'
+def stringArray = new String[3]
+assert stringArray instanceof String[]
+stringArray[0] = 'mrhaki'
+stringArray.putAt(1, 'Groovy')  // New syntax.
+stringArray[2] = 'Java'
 
-assert 'mrhaki' == strArray.getAt(0)  // Just another way to get a value.
-assert 'Groovy' == strArray[1]
-assert 'Java' == strArray[-1]  // Negative indeces allowed.
-assert ['mrhaki', 'Groovy'] == strArray[0..1]  // We can use ranges.
-assert ['mrhaki', 'Java'] == strArray[0, 2]
+assert stringArray.getAt(0) == 'mrhaki'  // Just another way to get a value.
+assert stringArray[1] == 'Groovy'
+assert stringArray[-1] == 'Java' // Negative indeces allowed.
+assert stringArray[0..1] == ['mrhaki', 'Groovy'] // We can use ranges.
+assert stringArray[0, 2] == ['mrhaki', 'Java']
 
-assert 3 == strArray.length  // Normal length property for arrays.
-assert 3 == strArray.size()  // Groovy adds size() method as well.
+assert stringArray.length == 3  // Normal length property for arrays.
+assert stringArray.size() == 3 // Groovy adds size() method as well.
 
 // We can use min() and max() methods.
-assert 42 == [102,301,42,83].min()
-assert 301 == [102,301,42,83].max()
-assert 'Java' == strArray.min { it.size() }
-assert 'mrhaki' == strArray.max { it[0] as char }
+assert [102,301,42,83].min() == 42
+assert [102,301,42,83].max() == 301
+assert stringArray.min { it.size() } == 'Java'
+assert stringArray.max { it[0] as char } == 'mrhaki'
 
 // We can even use the Collection GDK methods on an array.
-strArray.eachWithIndex { value, idx -> assert value == strArray[idx] }
-assert ['ikahrm', 'yvoorG', 'avaJ'] == strArray.collect { it.reverse() }
-assert 'Groovy' == strArray.find { it =~ /Groovy/ }
+stringArray.eachWithIndex { value, idx -> assert stringArray[idx] == value }
+assert stringArray.collect { it.reverse() } == ['ikahrm', 'yvoorG', 'avaJ']
+assert stringArray.find { it =~ /Groovy/ } == 'Groovy'
 
 // We can remove values with the '-' operator.
-assert ['Groovy', 'Java'] == strArray - 'mrhaki'
+assert stringArray - 'mrhaki' == ['Groovy', 'Java']
 
 // Other useful methods for arrays.
-assert ['Java', 'Groovy', 'mrhaki'] == strArray.reverse()
-assert ['Groovy', 'Java', 'mrhaki'] == strArray.sort()
-assert 1 == strArray.count('mrhaki')
+assert stringArray.reverse() == ['Java', 'Groovy', 'mrhaki']
+assert stringArray.sort() == ['Groovy', 'Java', 'mrhaki']
+assert stringArray.count('mrhaki') == 1
 
 // Convert to ArrayList.
-def strList = strArray.toList()
-assert 'java.util.ArrayList' == strList.class.name
+def strList = stringArray.toList()
+assert strList.class.name == 'java.util.ArrayList'
 
 // Convert ArrayList to array object.
 def otherArray = strList as String[]

@@ -1,7 +1,5 @@
 def list = ['Groovy', 'Clojure', 'Java']
 
-def listString = list.toListString()
-def abbreviated = list.toListString(12)
-
-assert '[Groovy, Clojure, Java]' == listString
-assert '[Groovy, Clojure, ...]' == abbreviated
+assert list.toListString() == '[Groovy, Clojure, Java]'  // Just as list.toString()
+assert list.toString() == '[Groovy, Clojure, Java]'
+assert list.toListString(12) == '[Groovy, Clojure, ...]'

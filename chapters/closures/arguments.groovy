@@ -1,38 +1,18 @@
-// Closure with default 'it' argument.
-def defaultIt = { it - 1 }
-assert 'Groovy String with .' == defaultIt('Groovy String with 1.')
-assert 41 == defaultIt(42)
+// Closure with default single 'it' argument.
+def minusOne = { it - 1 }
+assert minusOne('Groovy String with 1.') == 'Groovy String with .'
+assert minusOne(42) == 41
 
-// Closure with named argument.
+// Closure with single named argument.
 def namedArg = { value -> value * 2 }
-assert 'Groovy Groovy ' == namedArg('Groovy ')
-assert 84 == namedArg(42)
+assert namedArg('Groovy ') == 'Groovy Groovy '
+assert namedArg(42) == 84
 
 // Closure with multiple named arguments.
 def moreArgs = { a, b -> a + b }
-assert 'Groovy Java' == moreArgs('Groovy ', 'Java')
-assert 44 == moreArgs(42, 2)
+assert moreArgs('Groovy ', 'Java') == 'Groovy Java'
+assert moreArgs(42, 2) == 44
 
 // Closure without arguments, even no 'it'.
-def noArgs = {-> 'Groovy closure without arguments' }
-assert 'Groovy closure without arguments' == noArgs()
-
-
-// Closure with default 'it' argument.
-def defaultIt = { it - 1 }
-assert 'Groovy String with .' == defaultIt('Groovy String with 1.')
-assert 41 == defaultIt(42)
-
-// Closure with named argument.
-def namedArg = { value -> value * 2 }
-assert 'Groovy Groovy ' == namedArg('Groovy ')
-assert 84 == namedArg(42)
-
-// Closure with multiple named arguments.
-def moreArgs = { a, b -> a + b }
-assert 'Groovy Java' == moreArgs('Groovy ', 'Java')
-assert 44 == moreArgs(42, 2)
-
-// Closure without arguments, even no 'it'.
-def noArgs = {-> 'Groovy closure without arguments' }
-assert 'Groovy closure without arguments' == noArgs()
+def noArgs = { -> 'Groovy closure without arguments' }
+assert noArgs() == 'Groovy closure without arguments'

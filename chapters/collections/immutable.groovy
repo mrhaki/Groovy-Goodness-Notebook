@@ -1,5 +1,5 @@
 def list = ['Groovy', 'Java', 'JRuby'].asImmutable()
-assert 'Groovy' == list[0]
+assert list[0] == 'Groovy'
 try {
     list << 'Scala'  // Cannot add item.
 } catch (e) {

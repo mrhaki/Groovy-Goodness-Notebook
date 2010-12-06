@@ -1,8 +1,7 @@
-// Simple sample.
+TODO// Simple curry sets value of first argument.
 def addNumbers = { x, y -> x + y }
 def addOne = addNumbers.curry(1)
-assert 5 == addOne(4)
-
+assert addOne(4) == 5
 
 // General closure to use a filter on a list.
 def filterList = { filter, list -> list.findAll(filter) }
@@ -15,7 +14,6 @@ def evenFilterList = filterList.curry(even)
 def oddFilterList = filterList.curry(odd)
 assert [0,2,4,6,8] == evenFilterList(0..8)
 assert [1,3,5,7] == oddFilterList(0..8)
-
 
 // Recipe to find text in lines.
 def findText = { filter, handler, text ->
@@ -40,7 +38,6 @@ findGroovy('''Groovy rules!
 And Java?
 Well... Groovy needs the JVM...
 ''')
-
 // This will output:
 // Found in line: Groovy rules!
 // Foudn in line: Well... Groovy needs the JVM...
@@ -50,7 +47,7 @@ Well... Groovy needs the JVM...
 import org.apache.commons.lang.RandomStringUtils as RSU
 
 def randomClosure = { size, letters, numbers ->
-    // Invoke RandomStringUtils.random() method
+    // Invoke RandomStringUtils.random() method.
     RSU.random size, letters, numbers
 }
 

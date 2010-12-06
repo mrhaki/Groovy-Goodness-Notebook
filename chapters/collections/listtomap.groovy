@@ -1,6 +1,6 @@
 def list = ['key', 'value', 'name', 'mrhaki'] as Object[]
 def map = list.toSpreadMap()
 
-assert 2 == map.size()
-assert 'value' == map.key
-assert 'mrhaki' == map['name']
+assert map.size() == 2
+assert map.key == 'value'
+assert map['name'] == 'mrhaki'

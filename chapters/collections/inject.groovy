@@ -3,14 +3,14 @@
 // to declare a variable to hold the result:
 def total = 0
 (1..4).each { total += it }
-assert 10  == total
+assert total == 10
 
 // With the inject method we 'inject' the
 // first value of the result, and then for
 // each item the result is increased and
 // returned for the next iteration.
 def sum = (1..4).inject(0) { result, i -> result + i }
-assert 10 == sum
+assert sum == 10
 
 // We add a println statement to see what happens.
 (1..4).inject(0) { result, i ->
@@ -39,6 +39,6 @@ def persons = [
 // point for the result.
 def map = persons.inject([:]) { result, person ->
     result[person.username] = person.email
-    result
+    result  // Remember to return the map as result.
 }
-assert [mrhaki: 'email@host.com', hubert: 'other@host.com'] == map
+assert map == [mrhaki: 'email@host.com', hubert: 'other@host.com']

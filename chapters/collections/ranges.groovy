@@ -1,26 +1,26 @@
 // Simple ranges with number values.
 def ints = 1..10
-assert [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] == ints
-assert 10 == ints.size()
-assert 1  == ints.from
-assert 10 == ints.to
+assert ints == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+assert ints.size() == 10
+assert ints.from == 1
+assert ints.to == 10
 
 // We can step through the values.
 def list = []
 ints.step(2) { list << it }
-assert [1, 3, 5, 7, 9] == list
+assert list == [1, 3, 5, 7, 9]
 
 // A range is just a List.
-assert 1  == ints[0]
-assert 10 == ints.last()
+assert ints[0] == 1
+assert ints.last() == 10
 def s = ''
 (2..4).each { s += it }
-assert '234' == s
+assert s == '234'
 
 // Exclusive range.
 def exclusive = 2..<8
-assert [2, 3, 4, 5, 6, 7] == exclusive
-assert 6 == exclusive.size()
+assert exclusive == [2, 3, 4, 5, 6, 7]
+assert exclusive.size() == 6
 assert !exclusive.contains(8)
 
 // Object with next() and previous() can be used
@@ -31,12 +31,12 @@ enum Compass {
     SOUTH, SOUTH_WEST, WEST, NORTH_WEST
 }
 def northToSouth = Compass.NORTH..Compass.SOUTH
-assert 5 == northToSouth.size()
-assert Compass.EAST == northToSouth[2]
+assert northToSouth.size() == 5
+assert northToSouth[2] == Compass.EAST
 assert northToSouth.contains(Compass.SOUTH_EAST)
 
 // Bonus: next() and previous() are equivalent to
 // ++ and -- operators.
 def region = Compass.SOUTH
-assert Compass.SOUTH_WEST == ++region
-assert Compass.SOUTH == --region
+assert ++region == Compass.SOUTH_WEST
+assert --region == Compass.SOUTH

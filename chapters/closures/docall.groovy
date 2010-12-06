@@ -1,3 +1,4 @@
+// Use doCall to invoke Closure self.
 def sizeList = { list, counter = 0 ->
     if (list.size() == 0) {
         counter
@@ -6,4 +7,4 @@ def sizeList = { list, counter = 0 ->
     }
 }
 
-assert 5 == sizeList([1,2,3,4,5])
+assert sizeList([1,2,3,4,5]) == 5

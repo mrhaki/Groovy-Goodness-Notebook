@@ -1,7 +1,9 @@
-def methods = ['min', 'max', 'sum']
 def classes = ['Object[]', 'Collection']
+def methods = ['min', 'max']
 
-def combinations = GroovyCollections.combinations([classes, methods])
-assert 2 * 3 == combinations.size()
-assert [['Object[]', 'min'], ['Collection', 'min'], ['Object[]', 'max'], ['Collection', 'max'], ['Object[]', 'sum'], ['Collection', 'sum']] == combinations
-assert 3 == combinations.findAll { it[0] == 'Collection' }.size()
+// Make possible combinations of both lists.
+def combinations = [classes, methods].combinations()
+
+assert combinations.size() == 2 * 2
+assert combinations == [['Object[]', 'min'], ['Collection', 'min'], ['Object[]', 'max'], ['Collection', 'max']]
+assert combinations.findAll { it[0] == 'Collection' }.size() == 2

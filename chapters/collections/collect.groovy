@@ -1,13 +1,12 @@
-// Collect without
-// initial collection.
-assert [0,2,4,6] == (0..3).collect { it * 2 }
-assert ['Groovy', 'Grails'] == [lang: 'Groovy', framework: 'Grails'].collect { it.value }
+// Collect without initial collection.
+assert (0..3).collect { it * 2 } == [0,2,4,6]
+assert [lang: 'Groovy', framework: 'Grails'].collect { it.value } == ['Groovy', 'Grails']
 
 // Collect with initial collection argument.
-assert [0, 1, 2, 3] == [2, 3].collect([0, 1]) { it }
-assert [0, 3, 6, 9] == [2, 3].collect([0, 3], { it * 3})
-assert ['Gradle', 'groovy', 'grails'] == ['Groovy', 'Grails'].collect(['Gradle']) { it.toLowerCase() }
-assert ['m','r','h','a','k','i'] == [4, -3, 7, 5].collect(['m', 'r']) { (it + 100) as char }
+assert [2, 3].collect([0, 1]) { it } == [0, 1, 2, 3]
+assert [2, 3].collect([0, 3], { it * 3}) == [0, 3, 6, 9]
+assert ['Groovy', 'Grails'].collect(['Gradle']) { it.toLowerCase() } == ['Gradle', 'groovy', 'grails']
+assert [4, -3, 7, 5].collect(['m', 'r']) { (it + 100) as char } == ['m','r','h','a','k','i']
 
 
 class User {
@@ -17,14 +16,13 @@ class User {
 }
 
 def users = [new User(name: 'mrhaki'), new User(name: 'hubert')]
+// Compare spread operator and collect method.
+assert users*.toString() == ['mrhaki', 'hubert']
+assert users*.aloud() == ['MRHAKI', 'HUBERT']
+assert users.collect { it.toString() } == ['mrhaki', 'hubert']
+assert users.collect { it.aloud() } == ['MRHAKI', 'HUBERT']
 
-assert ['mrhaki', 'hubert'] == users*.toString()
-assert ['MRHAKI', 'HUBERT'] == users*.aloud()
-assert ['mrhaki', 'hubert'] == users.collect { it.toString() }
-assert ['MRHAKI', 'HUBERT'] == users.collect { it.aloud() }
-
-
+// Compare collectAll and collect methods.
 def list = [10, 20, 30, [1, 2, 3, [25, 50]], ['Groovy']]
-
-assert [20, 40, 60, [2, 4, 6, [50, 100]], ['GroovyGroovy']] == list.collectAll { it*2 }
-assert [20, 40, 60, [1, 2, 3, [25, 50], 1, 2, 3, [25, 50]], ['Groovy', 'Groovy']] == list.collect { it * 2 }
+assert list.collectAll { it * 2 } == [20, 40, 60, [2, 4, 6, [50, 100]], ['GroovyGroovy']]
+assert list.collect { it * 2 } == [20, 40, 60, [1, 2, 3, [25, 50], 1, 2, 3, [25, 50]], ['Groovy', 'Groovy']]

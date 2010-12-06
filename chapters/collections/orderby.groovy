@@ -14,8 +14,8 @@ def languages = [
 def orderByDynamicAndName = new OrderBy([{ it.dynamic }, { it.name }])
 def sortedLanguages = languages.sort(orderByDynamicAndName)
 
-assert 'Java' == sortedLanguages[0].name
+assert sortedLanguages[0].name == 'Java'
 assert !sortedLanguages[0].dynamic
-assert 'Clojure' == sortedLanguages[1].name
-assert 'Groovy' == sortedLanguages[2].name
+assert sortedLanguages[1].name == 'Clojure'
+assert sortedLanguages[2].name == 'Groovy'
 assert sortedLanguages[1].dynamic && sortedLanguages[2].dynamic

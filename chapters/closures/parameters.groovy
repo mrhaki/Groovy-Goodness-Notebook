@@ -1,6 +1,6 @@
 // Two simple closure with one and two parameters.
-def one = { it.toUpperCase() }
-def two = { String s, upper ->
+def oneArg = { it.toUpperCase() }
+def twoArg = { String s, upper ->
     if (upper) {
         s.toUpperCase()
     } else {
@@ -8,18 +8,19 @@ def two = { String s, upper ->
     }
 }
 
+// Closure with check for number of parameters and types.
 def runClosure(cl) {
     switch (cl.maximumNumberOfParameters) {
         case 1:
-            assert [java.lang.Object] == cl.parameterTypes
+            assert cl.parameterTypes == [java.lang.Object]
             cl.call('Groovy')
             break
         case 2:
-            assert [java.lang.String, java.lang.Object] == cl.parameterTypes
+            assert cl.parameterTypes == [java.lang.String, java.lang.Object]
             cl('Groovy', false)
             break
     }
 }
 
-assert 'GROOVY' == runClosure(one)
-assert 'groovy' == runClosure(two)
+assert runClosure(oneArg) == 'GROOVY'
+assert runClosure(twoArg) == 'groovy'

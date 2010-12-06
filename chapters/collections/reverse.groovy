@@ -1,13 +1,14 @@
 def list = [10, 20, 30]
 
-assert [30, 20, 10] == list.reverse()
+assert list.reverse() == [30, 20, 10]
+assert list[-1..0] == [30, 20, 10]
 
 def result = []
 list.reverseEach {
     result << it * 2
 }
 
-assert [60, 40, 20] == result
+assert result == [60, 40, 20]
 
 
 def reversed = [:]
@@ -15,7 +16,7 @@ def reversed = [:]
     reversed[key] = value ** 2
 }
 
-assert [b: 4, c: 9, a: 1] == reversed
+assert reversed == [b: 4, c: 9, a: 1]
 
 // TreeMap uses natural ordering of keys, so
 // reverseEach starts with key 'c'.
@@ -24,4 +25,4 @@ def reversedMap = [:]
 tree.reverseEach {
     reversedMap[it.key] = it.value * 2
 }
-assert [c: 60, b: 40, a: 20] == reversedMap
+assert reversedMap == [c: 60, b: 40, a: 20]
