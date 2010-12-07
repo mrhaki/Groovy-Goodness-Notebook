@@ -1,15 +1,17 @@
 import groovy.time.*
-import org.codehaus.groovy.runtime.TimeCategory
+
+Locale.setDefault(Locale.US)
 
 // Define period of 2 years, 3 months, 15 days, 0 hours, 23 minutes, 2 seconds and 0 milliseconds.
 def period = new DatumDependentDuration(2, 3, 15, 0, 23, 2, 0)
-assert '2 years, 3 months, 15 days, 23 minutes, 2.000 seconds' == period.toString()
+assert period.toString() == '2 years, 3 months, 15 days, 23 minutes, 2.000 seconds'
+
 def year2000 = new Date(100, 0, 0)  // Jan 1, 2000
-assert 'Mon Apr 15 00:23:02 UTC 2002' == (period + year2000).toString()
+assert (period + year2000).toString() == 'Mon Apr 15 00:23:02 CEST 2002'
 
 // Define time period of 5 hours, 54 minutes and 30 milliseconds.
 def time = new TimeDuration(5, 54, 0, 30)
-assert '5 hours, 54 minutes, 0.030 seconds' == time.toString()
+assert time.toString() == '5 hours, 54 minutes, 0.030 seconds'
 
 use (TimeCategory) {
     assert period.toString() == (2.years + 3.months + 15.days + 0.hour + 23.minutes + 2.seconds).toString()

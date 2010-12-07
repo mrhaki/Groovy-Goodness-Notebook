@@ -2,9 +2,9 @@
 date = new Date().parse('yyyy/MM/dd', '1973/07/09')
 
 // We can use [] or getAt() to get date fields.
-assert 1973 == date[Calendar.YEAR]
-assert 6 == date[Calendar.MONTH]
-assert 9 == date.getAt(Calendar.DATE)
+assert date[Calendar.YEAR] == 1973
+assert date[Calendar.MONTH] == 6
+assert date.getAt(Calendar.DATE) == 9
 
 dateNext = date.clone()
 datePrevious = date.clone()
@@ -24,11 +24,11 @@ assert datePrevious == previousDay
 
 otherDate = new Date().parse('yyyy/MM/dd', '1973/07/21')
 // Dates can be used in ranges.
-assert 12 == (otherDate..<date).size()
+assert (otherDate..<date).size() == 12
 
 // Set Locale to assert date formatting.
 Locale.setDefault(Locale.US)
 
 // Date.format() uses java.text.SimpleDateFormat.
-assert '9 July, 1973' == date.format("d MMMM, yyyy")
-assert '7/9/73' == date.getDateString()
+assert date.format("d MMMM, yyyy") == '9 July, 1973'
+assert date.getDateString() == '7/9/73'

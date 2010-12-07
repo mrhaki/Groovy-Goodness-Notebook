@@ -6,14 +6,14 @@ date[YEAR] = 2010
 date[MONTH] = JUNE
 date[DATE] = 14
 
-assert 110 == date.year
-assert 5 == date.month
-assert 14 == date.date
+assert date.year == 110
+assert date.month == 5
+assert date.date == 14
 
 // Get value with subscript operator
-assert 2010 == date[YEAR]
-assert JUNE == date[MONTH]
-assert 14 == date[DATE]
+assert date[YEAR] == 2010
+assert date[MONTH] == JUNE
+assert date[DATE] == 14
 
 
 def cal = Calendar.instance
@@ -22,5 +22,5 @@ cal[YEAR] = 2000
 cal[MONTH] = DECEMBER
 cal[DATE] = 25
 
-assert '2000-12-25' == cal.format('yyyy-MM-dd')
-assert 2000 == cal[YEAR]  // Get value with subscript operator
+assert cal.format('yyyy-MM-dd') == '2000-12-25'
+assert cal[YEAR] == 2000 // Get value with subscript operator
