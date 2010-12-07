@@ -21,10 +21,10 @@ file3.withWriter('UTF-8') { writer ->
 // Reading contents of files to an array:
 def lines = file1.readLines()
 assert 2 == lines.size()
-assert 'Working with files the Groovy way is easy.' == lines[0]
+assert lines[0] == 'Working with files the Groovy way is easy.'
 
 // Or we read with the text property:
-assert 'We can also use writers to add contents.' == file3.text
+assert file3.text == 'We can also use writers to add contents.'
 
 // Or with a reader:
 count = 0
@@ -32,10 +32,10 @@ file2.withReader { reader ->
     while (line = reader.readLine()) {
         switch (count) {
             case 0:
-                assert 'We can even use the text property of' == line
+                assert line == 'We can even use the text property of'
                 break
             case 1:
-                assert 'a file to set a complete block of text at once.' == line
+                assert line == 'a file to set a complete block of text at once.'
                 break
         }
         count++
@@ -45,13 +45,13 @@ file2.withReader { reader ->
 // We can also read contents with a filter:
 sw = new StringWriter()
 file1.filterLine(sw) { it =~ /Groovy/ }
-assert 'Working with files the Groovy way is easy.\r\n' == sw.toString()
+assert sw.toString() == 'Working with files the Groovy way is easy.\r\n'
 
 // We can look for files in the directory with different methods.
 // See for a complete list the File GDK documentation.
 files = []
 new File('.').eachFileMatch(~/^groovy.*\.txt$/) { files << it.name }
-assert ['groovy1.txt', 'groovy2.txt', groovy3.txt'] == files
+assert files == ['groovy1.txt', 'groovy2.txt', 'groovy3.txt']
 
 // Delete all files:
 files.each { new File(it).delete() }

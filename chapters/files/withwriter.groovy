@@ -9,4 +9,4 @@ file.withReader('UTF-8') {
     s = it.readLine()
 }
 
-assert 'Adding this text to the file.' == s
+assert s == 'Adding this text to the file.'
