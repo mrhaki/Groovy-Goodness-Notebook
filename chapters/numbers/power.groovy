@@ -1,3 +1,4 @@
-assert 9 == 3**2
-assert 27 == 3.power(3)
-assert 16 == Math.pow(2, 4)  // Java way.
+// Raise the power of a number.
+assert 3**2 == 9 // Using the operator **
+assert 3.power(3) == 27  // Using the power() method.
+assert Math.pow(2, 4) == 16  // Java way.

@@ -6,16 +6,16 @@ List.metaClass.rightShift {
 }
 
 def list = ['one', 'two', 'three', 'four']
-assert 4 == list.size()
+assert list.size() == 4
 
 list.rightShift 'two'
-assert 3 == list.size()
-assert ['one', 'three', 'four'] == list
+assert list.size() == 3
+assert list == ['one', 'three', 'four']
 
 // Operator overloading in action: rightShift is >>
 list >> 'one'
-assert 2 == list.size()
-assert ['three', 'four'] == list
+assert list.size() == 2
+assert list == ['three', 'four']
 
 
 // We can also add behaviour to a specific instance instead of class.
@@ -25,7 +25,7 @@ list.metaClass.groovy {
     delegate.collect { it + ' groovy' }
 }
 
-assert ['three groovy', 'four groovy'] == list.groovy()
+assert list.groovy() == ['three groovy', 'four groovy']
 
 def newList = ['a', 'b']
 try {

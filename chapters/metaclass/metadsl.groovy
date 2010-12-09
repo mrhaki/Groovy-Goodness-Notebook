@@ -1,3 +1,5 @@
+// DSL for defining multiple methods with different
+// arguments in a closure.
 String.metaClass {
     or << { String s -> delegate.plus(' or ').plus(s) }
     or << { List l -> delegate.findAll("(${l.join('|')})") }
@@ -7,8 +9,8 @@ String.metaClass {
     }
 }
 
-assert 'Groovy or Java?' == ("Groovy" | "Java?")
-assert ['o', 'o', 'y'] == ("Groovy" | ['o', 'y'])
-assert 'Groovy and Java!' == ("Groovy" & "Java!")
+assert ("Groovy" | "Java?") == 'Groovy or Java?'
+assert ("Groovy" | ['o', 'y']) == ['o', 'o', 'y']
+assert ("Groovy" & "Java!") == 'Groovy and Java!'
 
-assert 'Yeah man!' == String.groovy()
+assert String.groovy() == 'Yeah man!'
