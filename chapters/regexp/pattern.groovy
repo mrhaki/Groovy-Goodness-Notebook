@@ -1,5 +1,5 @@
-def single = ~'[ab]test\\d'
-assert 'java.util.regex.Pattern' == single.class.name
+def single = ~'[ab]test\\d' // Notice the space between = and ~.
+assert single.class.name == 'java.util.regex.Pattern'
 
 def dubble = ~"string\$"
 assert dubble instanceof java.util.regex.Pattern
@@ -19,14 +19,12 @@ def curlySlashy = ~"$s GString"
 assert curlySlashy instanceof java.util.regex.Pattern
 
 // Using Pattern.matcher() to create new java.util.regex.Matcher.
-// In a next blog post we learn other ways to create
-// Matchers in Groovy.
 def testPattern = ~'t..t'
 assert testPattern.matcher("test").matches()
 
 // Groovy adds isCase() method to Pattern class.
 // Easy for switch and grep statements.
-def p = ~/\w+vy/
+def p = ~/\w+vy$/  // Ends with 'vy', like 'groovy'.
 assert p.isCase('groovy')
 
 switch ('groovy') {
@@ -40,4 +38,4 @@ switch ('groovy') {
 // And the grep method accepts Patterns.
 def lang = ~/^(?i)gr.*/
 def languages = ['java', 'Groovy', 'gRails']
-assert ['Groovy', 'gRails'] == languages.grep(lang)
+assert languages.grep(lang) == ['Groovy', 'gRails']
