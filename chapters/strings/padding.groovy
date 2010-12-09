@@ -1,10 +1,10 @@
-assert '   Groovy   ' == 'Groovy'.center(12)
-assert 'Groovy      ' == "Groovy".padRight(12)
-assert '      Groovy' == /Groovy/.padLeft(12)
+assert 'Groovy'.center(12)   == '   Groovy   '
+assert "Groovy".padRight(12) == 'Groovy      '
+assert 'Groovy'.padLeft(12)  == '      Groovy'
 
-assert '---Groovy---' == "Groovy".center(12, '-')
-assert 'Groovy * * *' == "Groovy".padRight(12, ' *')
-assert 'Groovy Groovy Groovy' == 'Groovy'.padLeft(20, 'Groovy ')
+assert "Groovy".center(12, '-')        == '---Groovy---'
+assert "Groovy".padRight(12, ' *')     == 'Groovy * * *'
+assert 'Groovy'.padLeft(20, 'Groovy ') == 'Groovy Groovy Groovy'
 
 def createOutput = {
     def table = [
@@ -40,7 +40,7 @@ def createOutput = {
     out.toString()
 }
 
-assert '''\
+assert createOutput() == '''\
 *** Summary ***
 
 Total pages:                  4
@@ -53,4 +53,4 @@ page1.html      200    1201
 page2.html       42    8853
 page3.html       98    3432
 page4.html      432    9081
-''' == createOutput()
+'''

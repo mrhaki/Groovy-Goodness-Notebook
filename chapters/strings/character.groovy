@@ -1,3 +1,5 @@
+// We can ask a char if it is a letter, digit,
+// lowercase, uppercase or whitespace.
 def str = 'a1cB \n.9'
 def characters = str.chars  // Convert to char[]
 

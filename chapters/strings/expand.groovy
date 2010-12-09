@@ -12,10 +12,10 @@ println stringWithTabs.expand(10)  // tab stop is 10
 // Output:
 // 0123456789012345678901234567890
 // Groovy  Grails  Griffon
-/ /Groovy    Grails    Griffon
+// Groovy    Grails    Griffon
 
-assert 'Groovy  Grails  Griffon' == stringWithTabs.expand()
-assert 'Groovy    Grails    Griffon' == stringWithTabs.expand(10)
+assert stringWithTabs.expand() == 'Groovy  Grails  Griffon'
+assert stringWithTabs.expand(10) == 'Groovy    Grails    Griffon'
 
 
 def stringWithSpaces = 'Hubert  Klein   Ikkink'
@@ -29,5 +29,5 @@ println stringWithSpaces10
 // Hubert  Klein   Ikkink
 // Hubert    Klein     Ikkink
 
-assert 'Hubert\tKlein\tIkkink' == stringWithSpaces.unexpand()
-assert 'Hubert\tKlein\tIkkink' == stringWithSpaces10.unexpand(10)
+assert stringWithSpaces.unexpand() == 'Hubert\tKlein\tIkkink'
+assert stringWithSpaces10.unexpand(10) == 'Hubert\tKlein\tIkkink'

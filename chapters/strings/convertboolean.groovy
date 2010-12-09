@@ -1,3 +1,5 @@
+// Groovy can convert different String values
+// to a Boolean.
 assert "y".toBoolean()
 assert 'TRUE'.toBoolean()
 assert '  trUe  '.toBoolean()
