@@ -14,9 +14,9 @@ def createKing() {
     ])
 }
 
-assert 3 == createKing().books.size()
-assert 'Stephen King' == createKing().name
-assert 'Carrie' == createKing().books.getAt(0).title
+assert createKing().books.size() == 3
+assert createKing().name == 'Stephen King'
+assert createKing().books.getAt(0).title == 'Carrie'
 
 @Newify
 def createKingRuby() {
@@ -27,9 +27,9 @@ def createKingRuby() {
     ])
 }
 
-assert 3 == createKingRuby().books.size()
-assert 'Stephen King' == createKingRuby().name
-assert 'Carrie, The Shining, It' == createKingRuby().books.title.join(', ')
+assert createKingRuby().books.size() == 3
+assert createKingRuby().name == 'Stephen King'
+assert createKingRuby().books.title.join(', ') == 'Carrie, The Shining, It'
 
 @Newify([Author, Book])
 def createKingPython() {
@@ -40,6 +40,6 @@ def createKingPython() {
     ])
 }
 
-assert 3 == createKingPython().books.size()
-assert 'Stephen King' == createKingPython().name
-assert 'It' == createKingPython().books.title.find { it == 'It' }
+assert createKingPython().books.size() == 3
+assert createKingPython().name == 'Stephen King'
+assert createKingPython().books.title.find { it == 'It' } == 'It'

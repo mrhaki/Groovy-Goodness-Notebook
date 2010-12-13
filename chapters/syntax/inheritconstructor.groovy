@@ -6,8 +6,7 @@ class MyException extends Exception {
 
 def e = new MyException()
 def e1 = new MyException('message')   // Other constructors are available.
-assert 'message' == e1.message
-
+assert e1.message == 'message'
 
 class Person {
     String name
@@ -21,4 +20,4 @@ class Person {
 class Child extends Person {}
 
 def child = new Child('Liam')
-assert 'Liam' == child.name
+assert child.name == 'Liam'

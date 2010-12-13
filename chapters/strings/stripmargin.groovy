@@ -3,17 +3,17 @@ def s = '''\
         |Grails
         |Griffon'''
 
-assert '''\
+assert s.stripMargin() == '''\
 Groovy
 Grails
-Griffon''' == s.stripMargin()
+Griffon'''
 
 def s1 = '''\
    * Gradle
    * GPars
    * Spock'''
 
-assert '''\
+assert s1.stripMargin("* ") == '''\
  Gradle
  GPars
- Spock''' == s1.stripMargin("* ")
+ Spock'''

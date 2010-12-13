@@ -1,4 +1,3 @@
-
 // Single quotes:
 def s1 = 'Yep this is a string, and we can use "double quotes" without escaping them.'
 def m1 = '''With three quotes
@@ -16,18 +15,17 @@ copy-paste."""
 def s3 = /Well almost everyting goes in a "slashy" 'string' without escaping. Good for readable regular expressions!/
 
 
-
-// Simple Groovy expressions can be used:
+// Simple Groovy expressions can be used in a GString:
 def user = new Expando(name: 'mrhaki', email: 'mail@email.com')
 def gs1 = "Hi, your name is ${user?.name}. If I shout I will call you ${user?.name?.toUpperCase()}!"
-println gs1 // Output: Hi, your name is mrhaki. If I shout I will call you MRHAKI!
+assert gs1 == 'Hi, your name is mrhaki. If I shout I will call you MRHAKI!'
 
 // Works also in triple double quoted multi-line strings:
 def mailMessage = """
 Hi ${user?.name},
 
 thank you for signing up.
-You signed up wit the following e-mail address:
+You signed up with the following e-mail address:
 
 ${user?.email}
 
@@ -35,7 +33,18 @@ Kind regards,
 
 the support team.
 """
-println mailMessage
+assert mailMessage == '''
+Hi mrhaki,
+
+thank you for signing up.
+You signed up with the following e-mail address:
+
+mail@email.com
+
+Kind regards,
+
+the support team.
+'''
 
 // We can use closures in GStrings to do lazy evaluation.
 // The closure is evaluated when the toString() method on the
@@ -47,5 +56,5 @@ def directEval = "Current name value is ${user.name} and email is ${user.email}.
 def lazyEval = "Current name value is ${ -> user.name } and email is ${ out -> out << user.email }."
 user.name = 'changed username'
 user.email = 'changed email'
-println directEval // Output: Current name value is mrhaki and email is mail@email.com.
-println lazyEval // Output: Current name value is changed username and email is changed email.
+assert directEval == 'Current name value is mrhaki and email is mail@email.com.'
+assert lazyEval == 'Current name value is changed username and email is changed email.'

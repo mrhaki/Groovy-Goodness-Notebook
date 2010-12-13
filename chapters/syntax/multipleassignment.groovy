@@ -7,5 +7,5 @@ class Size {
 }
 
 def (int myX, int myY) = new Size(x: 12, y: 30)
-assert 12 == myX
-assert 30 == myY
+assert myX == 12
+assert myY == 30

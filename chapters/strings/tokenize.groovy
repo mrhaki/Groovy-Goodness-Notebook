@@ -2,12 +2,12 @@ def s = 'one two three four'
 
 def resultList = s.tokenize()
 assert resultList.class.name == 'java.util.ArrayList'
-assert ['one', 'two', 'three', 'four'] == resultList
+assert resultList == ['one', 'two', 'three', 'four']
 
 def resultArray = s.split()
 assert resultArray instanceof String[]
-assert ['one', 'two', 'three', 'four'] == resultArray
+assert resultArray == ['one', 'two', 'three', 'four']
 
 def s1 = 'Java:Groovy'
-assert ['Java', 'Groovy'] == s1.tokenize(":")
-assert ['Java', 'Groovy'] == s1.tokenize(':' as char)
+assert s1.tokenize(":") == ['Java', 'Groovy']
+assert s1.tokenize(':' as char) == ['Java', 'Groovy']

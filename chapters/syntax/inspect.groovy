@@ -1,15 +1,15 @@
 def map = [username: 'mrhaki']
-assert '["username":"mrhaki"]' == map.inspect()
+assert map.inspect() == '["username":"mrhaki"]'
 
 def list = [1, 2, 3, 'Groovy']
-assert '[1, 2, 3, "Groovy"]' == list.inspect()
+assert list.inspect() == '[1, 2, 3, "Groovy"]'
 
 def range = 0..10
-assert '0..10' == range.inspect()
+assert range.inspect() == '0..10'
 
 def str = 'Inspecting object with Groovy'
-assert '"Inspecting object with Groovy"' == str.inspect()
-
+assert str.inspect() == '"Inspecting object with Groovy"'
+TODO
 def dom = groovy.xml.DOMBuilder.newInstance().parseText('<root><language>Groovy</language></root>')
 println dom.documentElement.inspect()
 // Output:
@@ -17,10 +17,4 @@ println dom.documentElement.inspect()
 // <root>
 //   <language>Groovy</language>
 // </root>
-/**
- * Created by IntelliJ IDEA.
- * User: mrhaki
- * Date: Nov 30, 2010
- * Time: 8:26:37 PM
- * To change this template use File | Settings | File Templates.
- */
+

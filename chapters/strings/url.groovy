@@ -5,11 +5,11 @@
 
 def url = "http://www.mrhaki.com/url.html".toURL()
 
-assert '''\
+assert url.text == '''\
 Simple test document
 for testing URL extensions
 in Groovy.
-''' == url.text
+'''
 
 def result = []
 url.eachLine {
@@ -17,8 +17,8 @@ url.eachLine {
         result << it
     }
 }
-assert ['in Groovy.'] == result
+assert result == ['in Groovy.']
 
 url.withReader { reader ->
-    assert 'Simple test document' == reader.readLine()
+    assert reader.readLine() == 'Simple test document'
 }

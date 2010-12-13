@@ -4,7 +4,7 @@ def say(msg = 'Hello', name = 'world') {
 
 // We can invoke 3 signatures:
 // say(), say(msg), say(msg, name)
-assert 'Hello world!' == say()
+assert say() == 'Hello world!'
 // Right most parameter with default value is eliminated first.
-assert 'Hi world!' == say('Hi')
-assert 'Howdy, mrhaki!' == say('Howdy,', 'mrhaki')
+assert say('Hi') == 'Hi world!'
+assert say('Howdy,', 'mrhaki') == 'Howdy, mrhaki!'

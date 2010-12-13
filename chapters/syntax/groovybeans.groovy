@@ -1,13 +1,13 @@
-class Car {
- int numberOfDoors
- String model
- String brand
- boolean automatic
- double price
+TODO class Car {
+    int numberOfDoors
+    String model
+    String brand
+    boolean automatic
+    double price
 
- String toString() {
-     "[Car details => brand: '${brand}', model: '${model}', #doors: '${numberOfDoors}', automatic: '${automatic}', price: '${price}']"
- }
+    String toString() {
+        "[Car details => brand: '${brand}', model: '${model}', #doors: '${numberOfDoors}', automatic: '${automatic}', price: '${price}']"
+    }
 }
 
 Car ford = new Car(brand: 'Ford', model: 'Focus', numberOfDoors: 4, automatic: false, price: 24995)

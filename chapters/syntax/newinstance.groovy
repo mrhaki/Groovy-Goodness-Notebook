@@ -15,9 +15,9 @@ assert !blog.name, 'Name has no value'
 assert !blog.subject, 'Subject has no value'
 
 def blog2 = Blog.newInstance(['mrhaki', 'Groovy'] as Object[])
-assert 'mrhaki' == blog2.name
-assert 'Groovy' == blog2.subject
+assert blog2.name == 'mrhaki'
+assert blog2.subject == 'Groovy'
 
 def blog3 = Blog.newInstance([name:'mrhaki', subject: 'Groovy'])
-assert 'mrhaki' == blog3.name
-assert 'Groovy' == blog3.subject
+assert blog3.name == 'mrhaki'
+assert blog3.subject == 'Groovy'

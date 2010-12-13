@@ -1,5 +1,6 @@
+// Groovy adds the minus() method to the String class.
 ​def s = 'Groovy and Strings are fun and versatile.'
 
-assert 'Groovy and Strings are fun' == s - ' and versatile.'
-assert 'Groovy and Strings are fun.' == s.minus(" and versatile")
-assert 'Groovy  Strings are fun and versatile.' == s - ~/\b\w{3}\b/
+assert s - ' and versatile.' == 'Groovy and Strings are fun' // We can use the '-' operator.
+assert s.minus(" and versatile") == 'Groovy and Strings are fun.'
+assert s - ~/\b\w{3}\b/ == 'Groovy  Strings are fun and versatile.'

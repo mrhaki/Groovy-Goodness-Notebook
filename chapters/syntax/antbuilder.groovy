@@ -9,7 +9,7 @@ ant.echo("Hello $world")  // Output: [echo] Hello Groovy
 def options = [src: 'http://mrhaki.blogspot.com', dest: 'blog.html']
 ant.get(options)
 // is the same as
-ant.get(src: 'http://mrhaki.blogspot.com', dest: 'blog.html']
+ant.get(src: 'http://mrhaki.blogspot.com', dest: 'blog.html')
 
 // Nice builder syntax for tasks with for example filesets.
 def zipfile = 'test.zip'

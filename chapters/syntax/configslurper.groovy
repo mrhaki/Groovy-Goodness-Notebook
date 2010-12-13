@@ -50,7 +50,7 @@ def appConfig = appSlurper.parse(app)
 // Both configurations are merged into one.
 def config = mailConfig.merge(appConfig)
 
-assert 'prod' == config.mail.hostname
-assert 'secret' == config.mail.user
-assert 'secret' == config.mail.password
-assert '1.0-2009_10_10' == config.app.version
+assert config.mail.hostname == 'prod'
+assert config.mail.user == 'secrect'
+assert config.mail.password == 'secret'
+assert config.app.version == '1.0-2009_10_10'

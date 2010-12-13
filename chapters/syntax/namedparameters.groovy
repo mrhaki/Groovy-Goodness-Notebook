@@ -23,8 +23,8 @@ p.move(street: 'High Av.', city: 'New Yark', '00920120', number: 42)
 // Groovy transforms the method invocation to:
 // p.move([street: 'High Av.', number: 42, city: 'New Yark'], '555-00920120')
 
-assert 'High Av.' == p.address.street
-assert 42 == p.address.number
-assert 'New Yark' == p.address.city
-assert '555-00920120' == p.phoneNumber
-assert 'mrhaki' == p.name
+assert p.address.street == 'High Av.'
+assert p.address.number ==42
+assert p.address.city == 'New Yark'
+assert p.phoneNumber == '555-00920120'
+assert p.name == 'mrhaki'

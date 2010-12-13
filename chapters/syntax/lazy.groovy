@@ -6,16 +6,16 @@ class Get {
 }
 
 def g = new Get(url: 'http://mrhaki.blogspot.com/')
-assert 'http://mrhaki.blogspot.com/' == g.url
+assert g.url == 'http://mrhaki.blogspot.com/'
 assert g.dump().contains('text=null')
 assert g.dump().contains('urlObj=null')
 
 // Now we access the urlObj property, so the value
 // is calculated and we can access it.
 assert g.urlObj
-assert 'http' == g.urlObj.protocol
-assert 'mrhaki.blogspot.com' == g.urlObj.host
-assert '/' == g.urlObj.path
+assert g.urlObj.protocol == 'http'
+assert g.urlObj.host == 'mrhaki.blogspot.com'
+assert g.urlObj.path =='/'
 
 // Now we access the text property, so the contents
 // is fetched from the URL.

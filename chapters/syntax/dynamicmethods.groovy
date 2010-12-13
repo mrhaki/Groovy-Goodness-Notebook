@@ -11,5 +11,5 @@ class Simple {
 def s = new Simple()
 def methods = ['hello', 'goodbye']
 
-assert 'Hello mrhaki, how are you?', s."$methods[0]"('mrhaki')
-assert 'Have a nice trip.', s."$methods[1]"
+assert s."$methods[0]"('mrhaki') == 'Hello mrhaki, how are you?'
+assert s."$methods[1]" == 'Have a nice trip.'

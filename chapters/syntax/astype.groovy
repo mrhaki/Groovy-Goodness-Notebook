@@ -17,7 +17,6 @@ class SquaredSize {
 def size = new Size(x: 10, y: 5)
 def squared = size as SquaredSize  // Or size.asType(SquaredSize)
 
-println squared  // Output: x: 100, y: 25
-
-assert 100 == squared.x
-assert 25 == squared.y
+assert squared.toString() == 'x: 100, y: 25'
+assert squared.x == 100
+assert squared.y == 25

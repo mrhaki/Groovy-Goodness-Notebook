@@ -1,4 +1,4 @@
-// *** Conditional context
+// Conditional context
 def list = ['Groovy', 'Java']
 assert 'Groovy' in list
 assert !('Scala' in list)
@@ -17,14 +17,16 @@ assert 'Groovy' in myObj
 assert 'Groovy' in myObj.value
 assert !('a' in myObj)
 
-// *** Iterative context
+// Iterative context
 // Use in in a for loop.
 def result = ''
 for (lang in list ) {
     result += lang
 }
-assert 'GroovyJava' == result
+assert result == 'GroovyJava'
 
+// Implement iterator() method so we can use
+// the in operator for the class.
 class Counter {
     Integer maxValue
     private Integer counter = 0

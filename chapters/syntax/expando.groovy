@@ -1,12 +1,12 @@
 def user = new Expando(username: 'mrhaki')
-assert 'mrhaki' == user.username
+assert user.username == 'mrhaki'
 
 // Add an extra property.
 user.email = 'email@host.com'
-assert 'email@host.com' == user.email
+assert user.email == 'email@host.com'
 
-// Assign closure as method. The closure can
-// take parameters.
+// Assign closure as a method.
+// The closure can take parameters.
 user.printInfo = { writer ->
     writer << "Username: $username"
     writer << ", email: $email"
@@ -14,4 +14,4 @@ user.printInfo = { writer ->
 
 def sw = new StringWriter()
 user.printInfo(sw)
-assert 'Username: mrhaki, email: email@host.com' == sw.toString()
+assert sw.toString() == 'Username: mrhaki, email: email@host.com'

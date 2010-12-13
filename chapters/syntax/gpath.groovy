@@ -8,14 +8,14 @@ def xml = '''
 
 def languages = new XmlSlurper().parseText(xml)
 // Navigate in XML with GPath.
-assert 3 == languages.language.size()
-assert 'Groovy' == languages.language.find { it.'@id' = 1 }.text()
-assert ['Groovy', 'Java', 'Ruby'] == languages.language.collect { it.text() }
-assert 1 == languages.language.find { it = /Groovy/ }['@id'].toInteger()
+assert languages.language.size() == 3
+assert languages.language.find { it.'@id' = 1 }.text() == 'Groovy'
+assert languages.language.collect { it.text() } == ['Groovy', 'Java', 'Ruby']
+assert languages.language.find { it = /Groovy/ }['@id'].toInteger() == 1
 
 // Navigating with GPath through object graph.
-assert 75 == String.metaClass.methods.name.size()
-assert ['copyValueOf', 'format', 'valueOf'] == String.metaClass.methods.findAll { it.static }.name.unique()
-assert ['replace', 'replace', 'replaceAll', 'replaceFirst'] == String.metaClass.methods.name.grep(~/replace.*/)
-assert ['class', 'bytes', 'empty'] == String.metaClass.properties.name
-assert ['java.lang.Class', 'byte[]', 'boolean'] == String.metaClass.properties.type.canonicalName
+assert String.metaClass.methods.name.size() == 75
+assert String.metaClass.methods.findAll { it.static }.name.unique() == ['copyValueOf', 'format', 'valueOf']
+assert String.metaClass.methods.name.grep(~/replace.*/) == ['replace', 'replace', 'replaceAll', 'replaceFirst']
+assert String.metaClass.properties.name == ['class', 'bytes', 'empty']
+assert String.metaClass.properties.type.canonicalName == ['java.lang.Class', 'byte[]', 'boolean']
