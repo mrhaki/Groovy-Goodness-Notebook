@@ -8,7 +8,7 @@ Kind regards, mrhaki'''
 def binding = [now: new Date(109, 11, 1), name: 'Hubert Klein Ikkink']
 def output = simple.createTemplate(source).make(binding).toString()
 
-assert "Dear Hubert Klein Ikkink,\nPlease respond to this e-mail before 08-12-2009\nKind regards, mrhaki" == output
+assert output == "Dear Hubert Klein Ikkink,\nPlease respond to this e-mail before 08-12-2009\nKind regards, mrhaki"
 
 // GStringTemplateEngine with out variable.
 def gstring = new GStringTemplateEngine()
@@ -17,7 +17,7 @@ Text is created for <% if (gstring) out << 'GStringTemplateEngine' else out << '
 def gbinding = [name: 'mrhaki', gstring: true]
 def goutput = gstring.createTemplate(gsource).make(gbinding).toString()
 
-assert "Dear mrhaki,\nText is created for GStringTemplateEngine." == goutput
+assert goutput == "Dear mrhaki,\nText is created for GStringTemplateEngine."
 
 // XmlTemplateEngine with gsp:scriplet and gsp:expression tags.
 def xmlEngine = new XmlTemplateEngine()
@@ -33,7 +33,7 @@ def xmlBinding = [users: [
 ]
 def xmlOutput = xmlEngine.createTemplate(xml).make(xmlBinding).toString()
 
-assert '''\
+assert xmlOutput == '''\
 <users>
   <user id='1'>
     mrhaki
@@ -42,4 +42,4 @@ assert '''\
     Hubert
   </user>
 </users>
-''' == xmlOutput
+'''

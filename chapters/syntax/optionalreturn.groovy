@@ -10,8 +10,8 @@ def doIt(b) {
         "You are false"
     }
 }
-assert 'You are true' == doIt(true)
-assert 'You are false' == doIt(false)
+assert doIt(true) == 'You are true'
+assert doIt(false) == 'You are false'
 
 def tryIt(file) {
     try {
@@ -23,7 +23,7 @@ def tryIt(file) {
         'Finally reached'
     }
 }
-assert 'Received exception: invalidfilename (The system cannot find the file specified)'  == tryIt('invalidfilename')
+assert tryIt('invalidfilename') == 'Received exception: invalidfilename (The system cannot find the file specified)'
 // Create new file with the name test, so we can read it.
 new FileWriter('test').withWriter { it.write('file contents') }
-assert 'file contents' == tryIt('test')
+assert tryIt('test') == 'file contents'

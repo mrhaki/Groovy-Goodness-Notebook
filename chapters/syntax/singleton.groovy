@@ -16,7 +16,7 @@ public class StringUtil {
     }
 }
 
-assert 6 == StringUtil.instance.count('mrhaki')
+assert StringUtil.instance.count('mrhaki') == 6
 
 // Use @Singleton to create a valid singleton class.
 // We can also use @Singleton(lazy=true) for a lazy loading
@@ -28,7 +28,7 @@ class Util {
     }
 }
 
-assert 6 == Util.instance.count("mrhaki")
+assert Util.instance.count("mrhaki") == 6
 
 try {
     new Util()

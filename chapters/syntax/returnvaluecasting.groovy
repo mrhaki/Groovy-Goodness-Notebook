@@ -1,8 +1,9 @@
+// Return type determines type casting of return value.
 String simple() {
     42
 }
-assert 'java.lang.String' == simple().class.name
-assert '42' == simple()
+assert simple().class.name == 'java.lang.String'
+assert simple() == '42'
 
 class User {
     String name, email
@@ -12,5 +13,5 @@ User createUser() {
     [name: 'mrhaki', email: 'mail@host.com']
 }
 assert createUser() instanceof User
-assert 'mrhaki' == createUser().name
-assert 'mail@host.com' == createUser().email
+assert createUser().name == 'mrhaki'
+assert createUser().email == 'mail@host.com'

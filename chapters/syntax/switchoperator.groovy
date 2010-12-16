@@ -26,10 +26,10 @@ def testSwitch(val) {
     result
 }
 
-assert 'Pattern match' == testSwitch("Switch to Groovy")
-assert 'Class isInstance' == testSwitch(42G)
-assert 'Range contains' == testSwitch(70)
-assert 'List contains' == testSwitch('test')
-assert 'Object equals' == testSwitch(42.056)
-assert 'Closure boolean' == testSwitch(20)
-assert 'Default' == testSwitch('default')
+assert testSwitch("Switch to Groovy") == 'Pattern match'
+assert testSwitch(42G) == 'Class isInstance'
+assert testSwitch(70) == 'Range contains'
+assert testSwitch('test') == 'List contains'
+assert testSwitch(42.056) == 'Object equals'
+assert testSwitch(20) == 'Closure boolean'
+assert testSwitch('default') == 'Default'

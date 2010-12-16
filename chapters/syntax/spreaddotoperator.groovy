@@ -12,11 +12,11 @@ def list = [
 ]
 
 // Use the spread-dot operator to invoke the speak() method.
-assert ['Groovy speaks.', 'Java speaks.', 'Scala speaks.'] == list*.speak()
-assert ['Groovy speaks.', 'Java speaks.', 'Scala speaks.'] == list.collect{ it.speak() }
+assert list*.speak() == ['Groovy speaks.', 'Java speaks.', 'Scala speaks.']
+assert list.collect{ it.speak() } == ['Groovy speaks.', 'Java speaks.', 'Scala speaks.']
 
 // We can also use the spread-dot operator to access
 // properties, but we don't need to, because Groovy allows
 // direct property access on list members.
-assert ['Groovy', 'Java', 'Scala'] == list*.lang
-assert ['Groovy', 'Java', 'Scala'] == list.lang
+assert list*.lang == ['Groovy', 'Java', 'Scala']
+assert list.lang == ['Groovy', 'Java', 'Scala']

@@ -14,11 +14,11 @@ sample.with {
     addLabel 'Groovy'
     addLabel 'Java'
 }
-assert 2 == sample.labels.size()
-assert 'Groovy' == sample.labels[0]
-assert 'Java' == sample.labels[1]
-assert 'mrhaki' == sample.username
-assert 'email@host.com' == sample.email
+assert sample.labels.size() == 2
+assert sample.labels[0] == 'Groovy'
+assert sample.labels[1] == 'Java'
+assert sample.username == 'mrhaki'
+assert sample.email == 'email@host.com'
 
 def sb = new StringBuilder()
 sb.with {
@@ -27,7 +27,7 @@ sb.with {
     append 'object.'
 }
 
-assert 'Just another way to add strings to the StringBuilder object.' == sb.toString()
+assert sb.toString() == 'Just another way to add strings to the StringBuilder object.'
 
 // Another example as seen at
 // http://javajeff.blogspot.com/2008/11/getting-groovy-with-with.html
@@ -39,4 +39,4 @@ cal.with {
     set DATE, 4
     add DATE, 2
 }
-assert'September 6, 2009' == cal.time.format('MMMM d, yyyy')
+assert cal.time.format('MMMM d, yyyy') == 'September 6, 2009'
