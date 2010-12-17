@@ -1,4 +1,4 @@
-TODO// Simple curry sets value of first argument.
+//TODO// Simple curry sets value of first argument.
 def addNumbers = { x, y -> x + y }
 def addOne = addNumbers.curry(1)
 assert addOne(4) == 5

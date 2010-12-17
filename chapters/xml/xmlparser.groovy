@@ -23,10 +23,10 @@ def xml = '''
 def ns = new Namespace('http://meta/book/info', 'meta')
 def books = new XmlParser().parseText(xml)
 assert books instanceof Node
-assert 4 == books.book.size()
-assert 11 == books.breadthFirst().size()
-assert 'Groovy in Action' == books.book[0].title.text()
-assert 'Groovy Programming' == books.book.find { it.'@id' == '2' }.title.text()
-assert 'Groovy Programming' == books.book.find { it.attribute('id') == '2' }.title.text()
-assert [1, 2, 3] ==  books.book.findAll { it.title.text() =~ /Groovy/ }.'@id'
-assert ['1-932394-84-2', '0123725070'] == books.book[ns.isbn].inject([]) { result, v -> result << v.text() }
+assert books.book.size() == 4
+assert books.breadthFirst().size() == 11
+assert books.book[0].title.text() == 'Groovy in Action'
+assert books.book.find { it.'@id' == '2' }.title.text() == 'Groovy Programming'
+assert books.book.find { it.attribute('id') == '2' }.title.text() == 'Groovy Programming'
+assert books.book.findAll { it.title.text() =~ /Groovy/ }.'@id' == [1, 2, 3]
+assert books.book[ns.isbn].inject([]) { result, v -> result << v.text() } == ['1-932394-84-2', '0123725070']

@@ -1,4 +1,5 @@
-TODO def multiline = '''\
+//TODO
+def multiline = '''\
 Groovy is closely related to Java,
 so it is quite easy to make a transition.
 '''

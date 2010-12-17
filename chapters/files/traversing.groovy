@@ -1,4 +1,5 @@
-TODO import static groovy.io.FileType.*
+//TODO
+import static groovy.io.FileType.*
 import static groovy.io.FileVisitResult.*
 
 def groovySrcDir = new File(System.env['GROOVY_HOME'], 'src/')

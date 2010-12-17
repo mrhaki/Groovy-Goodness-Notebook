@@ -1,4 +1,5 @@
-TODO new File('.').eachFileMatch(~/.*.jpg$/) {
+//TODO
+new File('.').eachFileMatch(~/.*.jpg$/) {
     // Use ImageMagick convert command to create a thumbnail for a JPEG image.
     def converter = "convert ${it.name} -thumbnail 100x100 thumb-${it.name - '.jpg'}.gif".execute()
     converter.waitFor()

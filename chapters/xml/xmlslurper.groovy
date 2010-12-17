@@ -22,9 +22,9 @@ def xml = '''
 
 def books = new XmlSlurper().parseText(xml).declareNamespace([meta:'http://meta/book/info'])
 assert books instanceof groovy.util.slurpersupport.GPathResult
-assert 4 == books.book.size()
-assert 11 == books.breadthFirst().size()
-assert 'Groovy in Action' == books.book[0].title
-assert 'Groovy Programming' == books.book.find { it.@id == '2' }.title
-assert [1, 2, 3] == books.book.findAll { it.title =~ /Groovy/ }.'@id'.list()
-assert ['1-932394-84-2', '0123725070'] == books.book.'meta:isbn'.list()
+assert books.book.size() == 4
+assert books.breadthFirst().size() == 11
+assert books.book[0].title == 'Groovy in Action'
+assert books.book.find { it.@id == '2' }.title == 'Groovy Programming'
+assert books.book.findAll { it.title =~ /Groovy/ }.'@id'.list() == [1, 2, 3]
+assert books.book.'meta:isbn'.list() == ['1-932394-84-2', '0123725070']

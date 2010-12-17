@@ -9,7 +9,7 @@ assert range.inspect() == '0..10'
 
 def str = 'Inspecting object with Groovy'
 assert str.inspect() == '"Inspecting object with Groovy"'
-TODO
+//TODO
 def dom = groovy.xml.DOMBuilder.newInstance().parseText('<root><language>Groovy</language></root>')
 println dom.documentElement.inspect()
 // Output:
