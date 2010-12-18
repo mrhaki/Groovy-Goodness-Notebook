@@ -14,8 +14,8 @@ assert languages.language.collect { it.text() } == ['Groovy', 'Java', 'Ruby']
 assert languages.language.find { it = /Groovy/ }['@id'].toInteger() == 1
 
 // Navigating with GPath through object graph.
-assert String.metaClass.methods.name.size() == 75
-assert String.metaClass.methods.findAll { it.static }.name.unique() == ['copyValueOf', 'format', 'valueOf']
-assert String.metaClass.methods.name.grep(~/replace.*/) == ['replace', 'replace', 'replaceAll', 'replaceFirst']
-assert String.metaClass.properties.name == ['class', 'bytes', 'empty']
-assert String.metaClass.properties.type.canonicalName == ['java.lang.Class', 'byte[]', 'boolean']
+assert BigDecimal.metaClass.methods.name.size() == 76
+assert BigDecimal.metaClass.methods.findAll { it.static }.name.unique() == ['valueOf']
+assert BigDecimal.metaClass.methods.name.grep(~/toBigInteger.*/) == ['toBigInteger', 'toBigIntegerExact']
+assert BigDecimal.metaClass.properties.name == ['scale', 'class']
+assert BigDecimal.metaClass.properties.type.canonicalName == ['int', 'java.lang.Class']

@@ -10,7 +10,7 @@ class Simple {
     }
 }
 
-def simple = new Simple(language: 'Groovy')
+def s = new Simple(language: 'Groovy')
 
 assert s.metaClass.respondsTo(s, 'whatDoYouSpeak')
 assert Simple.metaClass.respondsTo(s, 'say')

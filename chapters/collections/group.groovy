@@ -15,7 +15,7 @@ def groupIt = { key, value ->
 // Use groupEntriesBy.
 def groupEntries = m.groupEntriesBy(groupIt)
 assert groupEntries.size() == 2
-assert groupEntries.params & groupEntries.sort
+assert groupEntries.params && groupEntries.sort
 assert groupEntries.sort[0].value == 'desc' // Key for a list of Map$Entry objects.
 assert groupEntries.params.size() == 2
 assert groupEntries.params[0].value == 'Groovy'
@@ -27,7 +27,7 @@ assert groupEntries.params[0] instanceof Map$Entry
 // Use groupBy.
 def group = m.groupBy(groupIt)
 assert group.size() == 2
-assert group.params & group.sort
+assert group.params && group.sort
 assert group.sort.sort == 'desc'  // Key for Map with key/value pairs.
 assert group.params.size() == 2
 assert group.params.q1 == 'Groovy'

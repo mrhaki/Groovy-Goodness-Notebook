@@ -7,7 +7,7 @@ assert m.language == 'Groovy'
 assert m."name" == 'mrhaki'
 assert m.get('name')  == 'mrhaki' // We can omit the default value if we know the key exists.
 assert m.get('language', 'Java') == 'Groovy'
-assert null == m.get('expression') == null // Non-existing key in map.
+assert m.get('expression') == null // Non-existing key in map.
 assert m.get('expression', 'rocks') == 'rocks' // Use default value, this also creates the key/value pair in the map.
 assert m.get('expression') == 'rocks'
 assert m == [name: 'mrhaki', language: 'Groovy', expression: 'rocks']

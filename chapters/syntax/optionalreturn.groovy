@@ -23,7 +23,7 @@ def tryIt(file) {
         'Finally reached'
     }
 }
-assert tryIt('invalidfilename') == 'Received exception: invalidfilename (The system cannot find the file specified)'
+assert tryIt('invalidfilename') == 'Received exception: invalidfilename (No such file or directory)'
 // Create new file with the name test, so we can read it.
 new FileWriter('test').withWriter { it.write('file contents') }
 assert tryIt('test') == 'file contents'

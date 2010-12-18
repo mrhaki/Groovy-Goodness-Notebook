@@ -1,34 +1,47 @@
-//TODO
 import static groovy.io.FileType.*
-import static groovy.io.FileVisitResult.*
 
-def groovySrcDir = new File(System.env['GROOVY_HOME'], 'src/')
+// We build a sample dir structure so we can
+// test the traversing.
+def basedir = new File('traverse-sample')
+basedir.mkdirs()
+(1..15).each { counter ->
+    def subdir = new File(basedir, "sub$counter")
+    subdir.mkdirs()
+    ['txt', 'doc'].each { ext ->
+        def file = new File(subdir, "sample${counter}.$ext")
+        file.write 'sample'
+    }
+}
 
 def countFilesAndDirs = 0
-groovySrcDir.traverse {
+basedir.traverse {
     countFilesAndDirs++
 }
-println "Total files and directories in ${groovySrcDir.name}: $countFilesAndDirs"
+assert countFilesAndDirs == 45
 
 def totalFileSize = 0
-def groovyFileCount = 0
+def txtFileCount = 0
 def sumFileSize = {
     totalFileSize += it.size()
-    groovyFileCount++
+    txtFileCount++
 }
-def filterGroovyFiles = ~/.*\.groovy$/
-groovySrcDir.traverse type: FILES, visit: sumFileSize, nameFilter: filterGroovyFiles
-println "Total file size for $groovyFileCount Groovy source files is: $totalFileSize"
+def filterTxtFiles = ~/.*\.txt$/
+basedir.traverse type: FILES, visit: sumFileSize, nameFilter: filterTxtFiles
+assert txtFileCount == 15
+assert totalFileSize == 90
 
+def dirsWithSmallFiles = []
 def countSmallFiles = 0
 def postDirVisitor = {
     if (countSmallFiles > 0) {
-     println "Found $countSmallFiles files with small filenames in ${it.name}"
- }
+        dirsWithSmallFiles << it.name
+    }
     countSmallFiles = 0
 }
-groovySrcDir.traverse(type: FILES, postDir: postDirVisitor, nameFilter: ~/.*\.groovy$/) {
-    if (it.name.size() < 15) {
-     countSmallFiles++
+
+basedir.traverse(type: FILES, postDir: postDirVisitor, nameFilter: ~/.*\.doc/) {
+    if (it.name.size() < 12) {
+        countSmallFiles++
     }
 }
+assert dirsWithSmallFiles == ['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8', 'sub9']

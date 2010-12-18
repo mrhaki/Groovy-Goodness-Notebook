@@ -28,5 +28,5 @@ assert books.breadthFirst().size() == 11
 assert books.book[0].title.text() == 'Groovy in Action'
 assert books.book.find { it.'@id' == '2' }.title.text() == 'Groovy Programming'
 assert books.book.find { it.attribute('id') == '2' }.title.text() == 'Groovy Programming'
-assert books.book.findAll { it.title.text() =~ /Groovy/ }.'@id' == [1, 2, 3]
+assert books.book.findAll { it.title.text() =~ /Groovy/ }.'@id' == ['1', '2', '3']
 assert books.book[ns.isbn].inject([]) { result, v -> result << v.text() } == ['1-932394-84-2', '0123725070']

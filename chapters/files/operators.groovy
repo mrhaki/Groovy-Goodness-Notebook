@@ -45,7 +45,7 @@ file2.withReader { reader ->
 // We can also read contents with a filter:
 sw = new StringWriter()
 file1.filterLine(sw) { it =~ /Groovy/ }
-assert sw.toString() == 'Working with files the Groovy way is easy.\r\n'
+assert sw.toString() == 'Working with files the Groovy way is easy.\n'
 
 // We can look for files in the directory with different methods.
 // See for a complete list the File GDK documentation.

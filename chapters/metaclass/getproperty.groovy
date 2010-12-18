@@ -13,5 +13,5 @@ User.metaClass.getProperty = { String propName ->
 
 def mrhaki = new User(username: 'mrhaki')
 
-assert mrhaki.usernam == 'mrhaki'
+assert mrhaki.username == 'mrhaki'
 assert mrhaki.fullname == 'Dynamic property for User'

@@ -12,4 +12,3 @@ def u = User.new('mrhaki', 'mail@host.com')
 
 assert u.username == 'mrhaki'
 assert u.email == 'mail@host.com'
-​

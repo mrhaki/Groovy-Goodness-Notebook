@@ -29,11 +29,11 @@ def second = new User('user', 'test@host.com', date, ['user'])
 assert second.username == 'user'
 assert second.email == 'test@host.com'
 assert second.roles == ['user']
-assert second.created.format('yyyy/MM/dd') == '2009/08/16'
+assert second.created.format('yyyy/MM/dd') == '2009/09/16'
 assert date == second.created
 assert !date.is(second.created)  // Date, Clonables and arrays are deep copied.
 // toString() implementation is created.
-assert second.toString() == 'User(user, test@host.com, Wed Sep 16 00:00:00 UTC 2009, [user])'
+assert second.toString() == 'User(user, test@host.com, Wed Sep 16 00:00:00 CEST 2009, [user])'
 
 
 def third = new User(username: 'user', email: 'test@host.com', created: date, roles: ['user'])
