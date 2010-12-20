@@ -8,8 +8,8 @@ class Simple {
     }
 }
 
-def s = new Simple()
+def simple = new Simple()
 def methods = ['hello', 'goodbye']
 
-assert s."$methods[0]"('mrhaki') == 'Hello mrhaki, how are you?'
-assert s."$methods[1]" == 'Have a nice trip.'
+assert simple."${methods[0]}"('mrhaki') == 'Hello mrhaki, how are you?'
+assert simple."${methods[1]}"() == 'Have a nice trip.'

@@ -15,6 +15,7 @@ class Street {
     String additionalInfo
 }
 
+def company = null
 
 // company can be null.
 if (company != null && company.getAddress() != null && company.getAddress().getStreet() != null) {

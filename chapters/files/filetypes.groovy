@@ -1,17 +1,17 @@
 import groovy.io.FileType
 
 // First create sample dirs and files.
-def basedir = new File('filetypes')
-basedir.mkdir()
+def baseDir = new File('filetypes')
+baseDir.mkdir()
 (1..3).each {
-    new File(basedir, "dir$it").mkdir()
+    new File(baseDir, "dir$it").mkdir()
 }
 (1..3).each {
-    def file = new File(basedir, "file$it")
+    def file = new File(baseDir, "file$it")
     file << "Sample content for ${file.absolutePath}"
 }
 
-def currentDir = new File(basedir)
+def currentDir = baseDir
 def dirs = []
 // Use FileType.DIRECTORIES to only work with directories.
 currentDir.eachFile FileType.DIRECTORIES, {

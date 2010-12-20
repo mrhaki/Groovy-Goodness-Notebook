@@ -1,4 +1,4 @@
-dontcheck = ['powerassert']
+dontcheck = ['powerassert', 'padding', 'process', 'grabresolver']
 
 ok = []
 fail = []
@@ -35,7 +35,7 @@ basedir.eachDir { dir ->
 
 def printList(type, messages) {
     println '-' * 80
-    println "Aantal scripts $type: ${messages.size()}"
+    println "# scripts $type: ${messages.size()}"
     println '-' * 80
     messages.each { println it }
 }
